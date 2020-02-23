@@ -22,20 +22,22 @@ public class TestDoIt {
 				Annotation annotation = method.getAnnotation(Info.class);
 				Info info = (Info) annotation;
 
+				System.out.println("  " + method.getName() + "():");
 				for (int i = 0; i < info.amount(); i++) {
 					System.out.println(info.text());
-				}
-				System.out.println("  " + method.getName() + "():");
-				try {
-					System.out.println(method.invoke(object));
-				} catch (IllegalAccessException e) {
-					e.printStackTrace();
-				} catch (IllegalArgumentException e) {
-					e.printStackTrace();
-				} catch (InvocationTargetException e) {
-					e.printStackTrace();
-				}
 
+					try {
+						if (method.invoke(object) != null)
+							System.out.println(method.invoke(object));
+					} catch (IllegalAccessException e) {
+						e.printStackTrace();
+					} catch (IllegalArgumentException e) {
+						e.printStackTrace();
+					} catch (InvocationTargetException e) {
+						e.printStackTrace();
+					}
+					System.out.println();
+				}
 			}
 			System.out.println();
 		}
