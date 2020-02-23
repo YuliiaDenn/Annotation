@@ -9,6 +9,9 @@ public class Main {
 		Class<Test> test = Test.class;
 
 		System.out.println("All methods in class Test: ");
+		System.out.println();
+		
+		
 		for (Method method : test.getDeclaredMethods()) {
 			System.out.println(method);
 		}

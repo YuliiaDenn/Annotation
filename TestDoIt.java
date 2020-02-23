@@ -1,6 +1,7 @@
 package annotations;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class TestDoIt {
@@ -25,6 +26,16 @@ public class TestDoIt {
 					System.out.println(info.text());
 				}
 				System.out.println("  " + method.getName() + "():");
+				try {
+					System.out.println(method.invoke(object));
+				} catch (IllegalAccessException e) {
+					e.printStackTrace();
+				} catch (IllegalArgumentException e) {
+					e.printStackTrace();
+				} catch (InvocationTargetException e) {
+					e.printStackTrace();
+				}
+
 			}
 			System.out.println();
 		}
