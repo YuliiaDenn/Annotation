@@ -27,8 +27,8 @@ public class TestDoIt {
 					System.out.println(info.text());
 
 					try {
-						if (method.invoke(object) != null)
-							System.out.println(method.invoke(object));
+				
+							method.invoke(object, null);
 					} catch (IllegalAccessException e) {
 						e.printStackTrace();
 					} catch (IllegalArgumentException e) {
